@@ -1,0 +1,101 @@
+/* Main loan */
+
+#loanDisplay {
+    position: relative;
+    height: 400px;
+}
+
+#loanDisplay>div {
+    height: 100%;
+    margin: 0 12px
+}
+
+#loanDisplay>div>div {
+    height: 100%;
+}
+
+#loanDisplayContainer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -14px;
+    width: 100%;
+    height: 358px;
+}
+
+#loanDisplayColumn {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    margin: 0 10px;
+}
+
+#loanAmount {
+    color: #686868;
+    font-size: 8rem;
+    line-height: 200px;
+    text-align: center;
+}
+
+#historyChart {
+    padding: 50px 0;
+}
+
+#loanHide {
+    color: #68dff0;
+    position: absolute;
+    left: 18px;
+    top: 3px;
+}
+
+#loanHide:hover {
+    color: #4a9da3;
+}
+
+/* Maintenance loan */
+
+#maintLoanDisplay {
+    height: 600px;
+}
+
+#maintLoanDisplay>div {
+    height: 100%;
+    /* margin: 0 12px */
+}
+
+#maintLoanDisplay>div>div {
+    height: 100%;
+}
+
+#maintLoanContainer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -14px;
+    left: -50px;
+    width: 100%;
+    height: 317px;
+}
+
+#maintLoanLeft {
+    color: #686868;
+    font-size: 8rem;
+    line-height: 200px;
+    text-align: center;
+}
+
+#maintLoanLeftOutOf {
+    position: relative;
+    top: -75px;
+}
+
+#loanStatus {
+    position: relative;
+    top: 80px;
+}
+
+#maintLoanGraphLegend {
+    position: absolute;
+    top: 108px;
+    left: 107px;
+}
