@@ -97,5 +97,43 @@
 #maintLoanGraphLegend {
     position: absolute;
     top: 108px;
-    left: 107px;
+    left: 100px;
+}
+
+/* Withdraw money */
+
+.alert {
+    color: #ff2c2c;
+}
+
+#interestIncreaseAlert {
+    display: none;
+    position: relative;
+    left: -15px;
+    width: 100%;
+}
+
+.withdrawInput {
+    width: 200px;   
+    margin: 0 auto;
+}
+
+#repaymentStart {
+    bottom: 100px;
+}
+
+#repaymentTotal {
+    bottom: 70px;
+}
+
+#repaymentTerm {
+    bottom: 40px;
+}
+
+.repaymentInfo {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    color: #7f7f7f;
 }

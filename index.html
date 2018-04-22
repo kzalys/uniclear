@@ -43,7 +43,11 @@
         <!--header start-->
         <header class="header black-bg">
             <!--logo start-->
+            <div class="sidebar-toggle-box">
+                <img src="assets/img/logo.png" height="40px" style="position: relative; top: -13px;" alt="">
+            </div>
             <a href="index.html" class="logo">
+
                 <b>UniClear</b>
             </a>
             <!--logo end-->
@@ -71,7 +75,7 @@
                             <img src="assets/img/ui-sam.jpg" class="img-circle" width="60">
                         </a>
                     </p>
-                    <h5 class="centered">John Doe</h5>
+                    <h5 class="centered">Jane Doe</h5>
 
                     <li class="mt">
                         <a class="active" href="index.html">
@@ -79,99 +83,6 @@
                             <span>Dashboard</span>
                         </a>
                     </li>
-
-                    <!-- <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-desktop"></i>
-                            <span>UI Elements</span>
-                        </a>
-                        <ul class="sub">
-                            <li>
-                                <a href="general.html">General</a>
-                            </li>
-                            <li>
-                                <a href="buttons.html">Buttons</a>
-                            </li>
-                            <li>
-                                <a href="panels.html">Panels</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-cogs"></i>
-                            <span>Components</span>
-                        </a>
-                        <ul class="sub">
-                            <li>
-                                <a href="calendar.html">Calendar</a>
-                            </li>
-                            <li>
-                                <a href="gallery.html">Gallery</a>
-                            </li>
-                            <li>
-                                <a href="todo_list.html">Todo List</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-book"></i>
-                            <span>Extra Pages</span>
-                        </a>
-                        <ul class="sub">
-                            <li>
-                                <a href="blank.html">Blank Page</a>
-                            </li>
-                            <li>
-                                <a href="login.html">Login</a>
-                            </li>
-                            <li>
-                                <a href="lock_screen.html">Lock Screen</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-tasks"></i>
-                            <span>Forms</span>
-                        </a>
-                        <ul class="sub">
-                            <li>
-                                <a href="form_component.html">Form Components</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-th"></i>
-                            <span>Data Tables</span>
-                        </a>
-                        <ul class="sub">
-                            <li>
-                                <a href="basic_table.html">Basic Table</a>
-                            </li>
-                            <li>
-                                <a href="responsive_table.html">Responsive Table</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class=" fa fa-bar-chart-o"></i>
-                            <span>Charts</span>
-                        </a>
-                        <ul class="sub">
-                            <li>
-                                <a href="morris.html">Morris</a>
-                            </li>
-                            <li>
-                                <a href="chartjs.html">Chartjs</a>
-                            </li>
-                        </ul>
-                    </li> -->
-
                 </ul>
                 <!-- sidebar menu end-->
             </div>
@@ -196,8 +107,8 @@
                                     <div id="loanDisplayContainer">
                                         <div id="loanDisplayColumn">
                                             <h2>MY LOAN SO FAR</h2>
-                                            <h1 id="loanAmount">35,009£</h1>
-                                            <b>6.3%</b>
+                                            <h1 id="loanAmount" class="count">0</h1>
+                                            <b>6.1%</b>
                                             <br/>Current standard interest
                                         </div>
                                         <div id="loanDisplayColumn">
@@ -219,103 +130,134 @@
                             <div class="col-md-8 mb">
                                 <div class="white-panel pn">
                                     <div class="white-header">
-                                        <h5>MY MAINTANENCE LOAN</h5>
+                                        <h5>MY MAINTENANCE LOAN</h5>
                                     </div>
-                                    <h3>AVAILABLE MAINTANENCE LOAN</h3>
-                                    <div id="maintLoanContainer">
-                                        <div id="loanDisplayColumn" style="position: relative;">
-                                            <div id="maintLoanGraphLegend" class="row">
-                                                <div class="col-sm-6 col-xs-6 goleft">
-                                                    <h3>
-                                                    70%</h3>
+                                    <div id="mainContainer">
+                                        <h3>AVAILABLE MAINTENANCE LOAN</h3>
+                                        <div id="maintLoanContainer">
+                                            <div id="loanDisplayColumn" style="position: relative;">
+                                                <div id="maintLoanGraphLegend" class="row">
+                                                    <div class="col-sm-6 col-xs-6 goleft">
+                                                        <h3>
+                                                            100%</h3>
+                                                    </div>
                                                 </div>
+                                                <canvas id="loanStatus" height="120" width="120"></canvas>
+                                                <script>
+                                                    var doughnutData = [
+                                                        {
+                                                            value: 100,
+                                                            color: "#68dff0"
+                                                        },
+                                                        {
+                                                            value: 0,
+                                                            color: "#fdfdfd"
+                                                        }
+                                                    ];
+                                                    var myDoughnut = new Chart(document.getElementById("loanStatus").getContext("2d")).Doughnut(doughnutData);
+                                                </script>
                                             </div>
-                                            <canvas id="loanStatus" height="120" width="120"></canvas>
-                                            <script>
-                                                var doughnutData = [
-                                                    {
-                                                        value: 70,
-                                                        color: "#68dff0"
-                                                    },
-                                                    {
-                                                        value: 30,
-                                                        color: "#fdfdfd"
-                                                    }
-                                                ];
-                                                var myDoughnut = new Chart(document.getElementById("loanStatus").getContext("2d")).Doughnut(doughnutData);
-                                            </script>
+                                            <div id="loanDisplayColumn" style="height: 200px;">
+                                                <h1 id="maintLoanLeft" class="count">30000</h1>
+                                                <h2 id="maintLoanLeftOutOf">/£30,000</h2>
+                                            </div>
                                         </div>
-                                        <div id="loanDisplayColumn" style="height: 200px;">
-                                            <h1 id="maintLoanLeft">8,400£</h1>
-                                            <h2 id="maintLoanLeftOutOf">/12,000£</h2>
-                                        </div>
-                                    </div>
-                                    <div id="maintLoanContainer">
+                                        <div id="maintLoanContainer">
                                             <div id="loanDisplayColumn">
-                                                <h4>CURRENT <br> INTEREST RATE</h4>
-                                                <h1 style="color: #7df253">3.2%</h1>
+                                                <h4>CURRENT
+                                                    <br> INTEREST RATE</h4>
+                                                <h1 id="interestCounter" style="color: #7df253">3%</h1>
                                             </div>
                                             <div id="loanDisplayColumn">
                                                 <h4 style="position: relative; top: -70px;">SAVINGS WITH CURRENT INTEREST RATE</h4>
                                                 <div class="custom-bar-chart" style="position: relative; top: -30px; height: 100px;">
-                                                        <ul class="y-axis" style="position: absolute; top: -20px">
-                                                            <li>
-                                                                <span>5000£</span>
-                                                            </li>
-                                                            <li>
-                                                                <span>2500£</span>
-                                                            </li>
-                                                            <li>
-                                                                <span>0£</span>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="bar">
-                                                            <div class="title">2020</div>
-                                                            <div class="value tooltips" data-original-title="200£" data-toggle="tooltip" data-placement="top">4%</div>
-                                                        </div>
-                                                        <div class="bar ">
-                                                            <div class="title">2025</div>
-                                                            <div class="value tooltips" data-original-title="300£" data-toggle="tooltip" data-placement="top">6%</div>
-                                                        </div>
-                                                        <div class="bar ">
-                                                            <div class="title">2030</div>
-                                                            <div class="value tooltips" data-original-title="1000£" data-toggle="tooltip" data-placement="top">20%</div>
-                                                        </div>
-                                                        <div class="bar ">
-                                                            <div class="title">2035</div>
-                                                            <div class="value tooltips" data-original-title="2000£" data-toggle="tooltip" data-placement="top">40%</div>
-                                                        </div>
-                                                        <div class="bar">
-                                                            <div class="title">2040</div>
-                                                            <div class="value tooltips" data-original-title="3000£" data-toggle="tooltip" data-placement="top">60%</div>
-                                                        </div>
-                                                        <div class="bar ">
-                                                            <div class="title">2045</div>
-                                                            <div class="value tooltips" data-original-title="4000£" data-toggle="tooltip" data-placement="top">80%</div>
-                                                        </div>
-                                                        <div class="bar">
-                                                            <div class="title">2050</div>
-                                                            <div class="value tooltips" data-original-title="5000£" data-toggle="tooltip" data-placement="top">100%</div>
-                                                        </div>
+                                                    <ul class="y-axis" style="position: absolute; top: -20px">
+                                                        <li>
+                                                            <span>£5000</span>
+                                                        </li>
+                                                        <li>
+                                                            <span>£2500</span>
+                                                        </li>
+                                                        <li>
+                                                            <span>£0</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="bar">
+                                                        <div class="title">2020</div>
+                                                        <div class="value tooltips" data-original-title="£200" data-toggle="tooltip" data-placement="top">4%</div>
                                                     </div>
+                                                    <div class="bar ">
+                                                        <div class="title">2025</div>
+                                                        <div class="value tooltips" data-original-title="£300" data-toggle="tooltip" data-placement="top">6%</div>
+                                                    </div>
+                                                    <div class="bar ">
+                                                        <div class="title">2030</div>
+                                                        <div class="value tooltips" data-original-title="£1000" data-toggle="tooltip" data-placement="top">20%</div>
+                                                    </div>
+                                                    <div class="bar ">
+                                                        <div class="title">2035</div>
+                                                        <div class="value tooltips" data-original-title="£2000" data-toggle="tooltip" data-placement="top">40%</div>
+                                                    </div>
+                                                    <div class="bar">
+                                                        <div class="title">2040</div>
+                                                        <div class="value tooltips" data-original-title="£3000" data-toggle="tooltip" data-placement="top">60%</div>
+                                                    </div>
+                                                    <div class="bar ">
+                                                        <div class="title">2045</div>
+                                                        <div class="value tooltips" data-original-title="£4000" data-toggle="tooltip" data-placement="top">80%</div>
+                                                    </div>
+                                                    <div class="bar">
+                                                        <div class="title">2050</div>
+                                                        <div class="value tooltips" data-original-title="£5000" data-toggle="tooltip" data-placement="top">100%</div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb" style="height: 300px;">
+                            <div id="withdrawDisplay" class="col-md-4 mb" style="height: 480px; margin-bottom: 193px">
                                 <div class="white-panel pn">
                                     <div class="white-header">
                                         <h5>WITHDRAW MONEY</h5>
                                     </div>
-                                    <h3 style="margin-top: 65px;">AMOUNT</h3>
-                                    <input type="text" id="withdrawAmount" class="form-control" style="width: 200px; margin: 0 auto;">
-                                    <button type="button" class="btn btn-warning" style="margin: 15px;">WITHDRAW</button>
+                                    <h3 style="margin-top: 30px;">YEAR 1</h3>
+                                    <input type="text" id="withdrawAmount1" class="form-control withdrawInput" onkeyup="enterWithdrawAmount(this)">
+                                    <h3 style="margin-top: 30px;">YEAR 2</h3>
+                                    <input type="text" id="withdrawAmount2" class="form-control withdrawInput" onkeyup="enterWithdrawAmount(this)">
+                                    <h3 style="margin-top: 30px;">YEAR 3</h3>
+                                    <input type="text" id="withdrawAmount3" class="form-control withdrawInput" onkeyup="enterWithdrawAmount(this)">
+                                    <i id="resetBtn" class="fas fa-redo-alt" style="position: absolute; top: 383px; right: 70px; color: gray;"></i>
+                                    <button id="withdrawBtn" type="button" class="btn btn-warning" style="margin-top: 30px">WITHDRAW</button>
+                                    <p id="interestIncreaseAlert" class="alert">This will increase your interest rate by 2%</p>
+
+                                    <div id="repaymentStart" class="repaymentInfo">
+                                        <span>
+                                            <b>
+                                                Loan at start of repayment
+                                            </b>
+                                        </span>
+                                        <span>£13212</span>
+                                    </div>
+                                    <div id="repaymentTotal" class="repaymentInfo">
+                                        <span>
+                                            <b>
+                                                Total repayments
+                                            </b>
+                                        </span>
+                                        <span>£13212</span>
+                                    </div>
+                                    <div id="repaymentTerm" class="repaymentInfo">
+                                        <span>
+                                            <b>
+                                                Repayment term
+                                            </b>
+                                        </span>
+                                        <span>19 years, 5 months</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        
-
                     </div>
                     <!-- /col-lg-9 END SECTION MIDDLE -->
 
@@ -338,7 +280,7 @@
                             <div class="details">
                                 <p>
                                     <muted>1 Apr</muted>
-                                    <br/> Transfered 200£ to your account
+                                    <br/> Transfered £200 to your account
                                     <br/>
                                 </p>
                             </div>
@@ -353,7 +295,7 @@
                             <div class="details">
                                 <p>
                                     <muted>25 Mar</muted>
-                                    <br/> Transfered 150£ to your account
+                                    <br/> Transfered £150 to your account
                                     <br/>
                                 </p>
                             </div>
@@ -368,7 +310,7 @@
                             <div class="details">
                                 <p>
                                     <muted>14 Mar</muted>
-                                    <br/> Transfered 3140£ to
+                                    <br/> Transfered £3140 to
                                     <b>University of Manchester</b>
                                     <br/>
                                 </p>
@@ -384,7 +326,7 @@
                             <div class="details">
                                 <p>
                                     <muted>5 Mar</muted>
-                                    <br/> Transfered 300£ to your account
+                                    <br/> Transfered £300 to your account
                                     <br/>
                                 </p>
                             </div>
@@ -399,7 +341,7 @@
                             <div class="details">
                                 <p>
                                     <muted>1 Jan</muted>
-                                    <br/> Transfered 120£ to your account
+                                    <br/> Transfered £120 to your account
                                     <br/>
                                 </p>
                             </div>
